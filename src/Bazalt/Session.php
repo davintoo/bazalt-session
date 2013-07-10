@@ -263,7 +263,9 @@ class Session
      */
     public function destroy()
     {
-        session_destroy();
+        if (session_id()) {
+            session_destroy();
+        }
     }
 
     /**
