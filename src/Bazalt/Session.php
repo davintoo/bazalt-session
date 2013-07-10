@@ -11,6 +11,10 @@
 
 namespace Bazalt;
 
+if (!defined('TESTING_STAGE')) {
+    define('TESTING_STAGE', 'testing');
+}
+
 /**
  * Клас для роботи з сесіями
  *
