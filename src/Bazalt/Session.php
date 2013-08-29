@@ -11,10 +11,6 @@
 
 namespace Bazalt;
 
-if (!defined('TESTING_STAGE')) {
-    define('TESTING_STAGE', 'testing');
-}
-
 /**
  * Клас для роботи з сесіями
  *
@@ -187,7 +183,7 @@ class Session
         if (self::$isStarted) {
             return;
         }
-        if (STAGE == TESTING_STAGE) {
+        if (TESTING_STAGE) {
             echo "ini_set('session.save_handler', " . self::$handler . ");\n";
         }
         ini_set('session.save_handler', self::$handler);
