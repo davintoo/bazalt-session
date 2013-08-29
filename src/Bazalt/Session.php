@@ -11,6 +11,14 @@
 
 namespace Bazalt;
 
+
+if (!defined('APPLICATION_ENV')) {
+    define('APPLICATION_ENV', getenv('APPLICATION_ENV'));
+}
+if (!defined('TESTING_STAGE')) {
+    define('TESTING_STAGE',     APPLICATION_ENV == 'testing');
+}
+
 /**
  * Клас для роботи з сесіями
  *
