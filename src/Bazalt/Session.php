@@ -198,7 +198,7 @@ class Session
             if (!is_writable($sessionsPath)) {
                 throw new \Exception('Session dir is not writable "' . $sessionsPath . '"');
             }
-            if (STAGE == TESTING_STAGE) {
+            if (TESTING_STAGE) {
                 echo "ini_set('session.save_path', $sessionsPath);\n";
             }
             ini_set('session.save_path', $sessionsPath);
@@ -212,7 +212,7 @@ class Session
                 self::$memcachedServer = str_replace('tcp://', '', self::$memcachedServer);
             }
 
-            if (STAGE == TESTING_STAGE) {
+            if (TESTING_STAGE) {
                 echo "ini_set('session.save_path', " . self::$memcachedServer . ");\n";
                 echo "ini_set('memcache.session_redundancy', 3);\n";
             }
@@ -222,7 +222,7 @@ class Session
             //Logger::getInstance()->info('Set memcache handler to server ' . self::$memcachedServer);
         }
 
-        if (STAGE == TESTING_STAGE) {
+        if (TESTING_STAGE) {
             echo "ini_set('session.gc_maxlifetime', " . self::$timeOut . ");\n";
         } else {
             ini_set('session.gc_maxlifetime', self::$timeOut);
@@ -232,7 +232,7 @@ class Session
             throw new \Exception('Session has already been started by session.auto-start or session_start()');
         }
 
-        if (STAGE == TESTING_STAGE) {
+        if (TESTING_STAGE) {
             echo "session_name(" . self::$cookieName . ");\n";
             echo "session_set_cookie_params(" . self::$timeOut . ", " . self::$cookiePath . ", " . self::$cookieDomain . ", false, true);\n";
             echo "session_start();\n";
