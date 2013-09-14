@@ -277,9 +277,9 @@ class Session
      *
      * @return string
      */
-    public function regenerateSessionId()
+    public static function regenerateSessionId()
     {
-        $this->_start();
+        self::_start();
         @session_regenerate_id(true);
     }
 
