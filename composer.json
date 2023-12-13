@@ -1,5 +1,5 @@
 {
-    "name": "bazalt/session",
+    "name": "davintoo/bazalt-session",
     "license": "New BSD License",
     "authors": [
         {
@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "analog/analog": "dev-master"
+        "analog/analog": "~1.0.20"
     },
     "require-dev": {
         "satooshi/php-coveralls": "dev-master"
